@@ -1,7 +1,9 @@
 package br.edu.ifsul.controle;
 
 import br.edu.ifsul.dao.CorretorDAO;
+import br.edu.ifsul.dao.PessoaDAO;
 import br.edu.ifsul.modelo.Corretor;
+import br.edu.ifsul.modelo.Pessoa;
 import br.edu.ifsul.util.Util;
 import java.io.Serializable;
 import javax.ejb.EJB;
@@ -15,6 +17,9 @@ public class ControleCorretor implements Serializable{
     @EJB
     private CorretorDAO<Corretor> dao;
     private Corretor objeto;
+    
+    @EJB
+    private PessoaDAO<Pessoa> pessoaDAO;
     
     public ControleCorretor(){
         
@@ -72,5 +77,13 @@ public class ControleCorretor implements Serializable{
 
     public void setObjeto(Corretor objeto) {
         this.objeto = objeto;
+    }
+
+    public PessoaDAO<Pessoa> getPessoaDAO() {
+        return pessoaDAO;
+    }
+
+    public void setPessoaDAO(PessoaDAO<Pessoa> pessoaDAO) {
+        this.pessoaDAO = pessoaDAO;
     }
 }
